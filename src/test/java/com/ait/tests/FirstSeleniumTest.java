@@ -26,7 +26,7 @@ public class FirstSeleniumTest {
     public void openGoogle() {
         System.out.println("CooGLE opened!!");
     }
-    @AfterMethod
+    @AfterMethod (enabled = false)  // enabled = false чтоб не закрывалось окно
     public void tearDown(){
         driver.quit(); // закрывает весь браузер
         //driver.close(); закрывает только вкладку.
