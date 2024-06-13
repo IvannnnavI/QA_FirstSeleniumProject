@@ -89,6 +89,45 @@ public class FindElementsTests {
         WebElement cssSelector = driver.findElement(By.cssSelector("[ng-reflect-name='city']"));
         System.out.println(cssSelector.getAttribute("type"));
 
+        //
+        WebElement webElementContains = driver.findElement(By.cssSelector("[ng-reflect-router-link*='car']"));
+        System.out.println(webElementContains.getText());
+
+        //start-> ^
+        driver.findElement(By.cssSelector("[ng-reflect-router-link^='let']"));
+
+        //end on -> $
+        driver.findElement(By.cssSelector("[ng-reflect-router-link$='work']"));
+
+    }
+    @Test
+    public void findElementByXpath() {
+        //   //*[@attr='value']
+
+        //tag name -> //tag
+        //driver.findElement(By.cssSelector("h1"));
+        driver.findElement(By.xpath("//h1"));
+
+        //id -> //*[@id='value']
+        //driver.findElement(By.cssSelector("#city"));
+        driver.findElement(By.xpath("//input[@id='city']"));
+
+        //class -> //*[@class='value']
+        //driver.findElement(By.cssSelector(".telephone"));
+        driver.findElement(By.xpath("//*[@class='telephone']"));
+
+        //text = //tag[text()='Text']
+        driver.findElement(By.xpath("//h2[text()='Type your data and hit Yalla!']"));
+        driver.findElement(By.xpath("//h2[.='Type your data and hit Yalla!']"));
+
+        //contains text -> //tag[contains(.,'Text')]
+        driver.findElement(By.xpath("//h2[contains(.,'Yalla!')]"));
+
+        //contains value -> //tag[contains(@attr,'partialValue')]
+        driver.findElement(By.xpath("//input[contains(@class,'target')]"));
+
+        //start -> //tag[starts-with(@attr,'startOfValue')]
+        driver.findElement(By.xpath("//input[starts-with(@class,'ng-untouched')]"));
     }
 
 }
