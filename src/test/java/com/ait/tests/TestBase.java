@@ -1,8 +1,11 @@
 package com.ait.tests;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -18,6 +21,14 @@ public class TestBase {
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
+    }
+    public void click(By locator) {
+        webDriver.findElement(locator).click();
+    }
+    public void type(By locator, String text) {
+        click(locator);
+        webDriver.findElement(locator).clear();
+        webDriver.findElement(locator).sendKeys(text);
     }
 
     @AfterMethod(enabled = false)
