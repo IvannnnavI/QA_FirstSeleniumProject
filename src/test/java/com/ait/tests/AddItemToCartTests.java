@@ -24,20 +24,20 @@ public class AddItemToCartTests extends TestBase {
     @Test
     public void addItemToCartTests(){
         //click on button "add to cart"
-        click(By.xpath("//body/div[4]/div[1]/div[4]/div[3]/div[1]/div[1]/div[3]/div[3]/div[1]/div[2]/div[3]/div[2]/input[1]"));
+        click(By.cssSelector("div.master-wrapper-page:nth-child(4) div.master-wrapper-content div.master-wrapper-main:nth-child(5) div.center-3 div.page.home-page div.page-body div.product-grid.home-page-product-grid:nth-child(4) div.item-box:nth-child(3) div.product-item div.details div.add-info div.buttons > input.button-2.product-box-add-to-cart-button"));
 
         //click on Shopping cart
         click(By.xpath("//span[contains(text(),'Shopping cart')]"));
 
         // assert Log Out button is present
-        Assert.assertTrue(isElementPresent(By.xpath("//a[.='14.1-inch Laptop']")));
+        Assert.assertTrue(isElementPresent(By.xpath("//a[contains(text(),'14.1-inch Laptop')]")));
         pause(500);
 
     }
     @AfterMethod
     public void postCondition(){
-        click(By.xpath("//tbody/tr[1]/td[1]/input[1]"));
-        click(By.xpath("//body/div[4]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/input[1]"));
+        click(By.xpath("//input[@name='removefromcart' and @value='4383797']"));
+        click(By.xpath("//input[@value='Update shopping cart'][1]"));
 
 
     }
