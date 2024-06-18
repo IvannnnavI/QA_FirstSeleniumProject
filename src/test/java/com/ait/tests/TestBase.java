@@ -30,6 +30,13 @@ public class TestBase {
         webDriver.findElement(locator).clear();
         webDriver.findElement(locator).sendKeys(text);
     }
+    public void pause(int millis){
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @AfterMethod(enabled = false)
     public void tearDown(){
