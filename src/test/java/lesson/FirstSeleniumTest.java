@@ -1,4 +1,4 @@
-package com.ait.tests;
+package lesson;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
