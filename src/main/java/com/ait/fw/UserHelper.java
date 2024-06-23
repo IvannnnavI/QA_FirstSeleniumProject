@@ -1,9 +1,11 @@
-package com.ait.tests;
+package com.ait.fw;
 
+import com.ait.models.Registration;
+import com.ait.models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class UserHelper extends BaseHelper{
+public class UserHelper extends BaseHelper {
     public UserHelper(WebDriver webDriver) {
         super(webDriver);
     }
@@ -55,7 +57,20 @@ public class UserHelper extends BaseHelper{
     public boolean isMessageUnsuccessfulLoginPresent() {
         return isElementPresent(By.xpath("//span[contains(text(),'Login was unsuccessful. Please correct the errors ')]"));
     }
+
     public boolean isMessageAboutSuccessfulRegistrationPresent() {
         return isElementPresent(By.xpath("//div[contains(text(),'Your registration completed')]"));
+    }
+
+    public boolean isRegisterButtonPresent() {
+        return isElementPresent(By.cssSelector("[href='/register']"));
+    }
+
+    public void clickOnLogOutButton() {
+        click(By.xpath("//a[contains(text(),'Log out')]"));
+    }
+
+    public boolean isLoginButtonPresent() {
+        return isElementPresent(By.xpath("//a[contains(text(),'Log in')]"));
     }
 }

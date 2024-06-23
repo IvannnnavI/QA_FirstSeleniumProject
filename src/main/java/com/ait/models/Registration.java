@@ -1,6 +1,4 @@
-package com.ait.tests;
-
-import org.openqa.selenium.By;
+package com.ait.models;
 
 public class Registration {
     private  String firstName;
