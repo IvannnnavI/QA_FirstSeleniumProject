@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.NoSuchElementException;
 
 public class BasePage {
     WebDriver driver;
@@ -47,6 +48,27 @@ public class BasePage {
     public boolean shouldHaveText(WebElement element, String text, int time) {
         return new WebDriverWait(driver, Duration.ofSeconds(time))
                 .until(ExpectedConditions.textToBePresentInElement(element, text));
+    }
+    public void pause(int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public boolean isElementVisible(WebElement el) {
+        try {
+            el.isDisplayed();
+            return true;
+        }catch (NoSuchElementException ex) {
+            ex.getMessage();
+            return false;
+        }
+
+    }
+    public void moveWithJs(WebElement element, int x, int y) {
+        js.executeScript("window.scrollBy(" + x + " , " + y +")");
+
     }
 }
 
