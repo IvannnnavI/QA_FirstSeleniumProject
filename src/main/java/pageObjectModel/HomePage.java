@@ -48,4 +48,29 @@ public class HomePage extends BasePage {
         return new SliderPage(driver);
 
     }
+
+    @FindBy(xpath = "//a[contains(text(),'Context Menu')]")
+    WebElement contextMenu;
+
+
+    public ContextMenuPage getContextMenuPage() {
+        click(contextMenu);
+        return new ContextMenuPage(driver);
+    }
+    @FindBy(xpath = "//a[contains(text(),'Dropdown')]")
+    WebElement dropdown;
+
+    public DropDownPage getDropdownList() {
+        click(dropdown);
+        return new DropDownPage(driver);
+
+    }
+    @FindBy(xpath = "//a[contains(text(),'Drag and Drop')]")
+    WebElement dragAndDrop;
+
+    public DrapAndDropPage getDragAndDropPage() {
+        click(dragAndDrop);
+        return new DrapAndDropPage(driver);
+
+    }
 }
