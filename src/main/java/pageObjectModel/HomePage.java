@@ -73,4 +73,19 @@ public class HomePage extends BasePage {
         return new DrapAndDropPage(driver);
 
     }
+    @FindBy(xpath = "//a[contains(text(),'JQuery UI Menus')]")
+    WebElement jQueryUIMenus;
+
+    public JQueryUIPage getJQueryUIPage() {
+        click(jQueryUIMenus);
+        return new JQueryUIPage(driver);
+    }
+
+    @FindBy(xpath = "//a[contains(text(),'File Upload')]")
+    WebElement fileUpload;
+
+    public FileUploaderPage getFileUploaderPage() {
+        click(fileUpload);
+        return new FileUploaderPage(driver);
+    }
 }
