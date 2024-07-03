@@ -88,4 +88,18 @@ public class HomePage extends BasePage {
         click(fileUpload);
         return new FileUploaderPage(driver);
     }
+    @FindBy(xpath = "//a[contains(text(),'Exit Intent')]")
+    WebElement exitIntent;
+
+    public ExitIntentPage getExitIntentPage() {
+        click(exitIntent);
+        return new ExitIntentPage(driver);
+    }
+    @FindBy(xpath = "//a[contains(text(),'Broken Images')]")
+    WebElement brokenImages;
+
+    public BrokenImagePage getBrokenImagePage() {
+        click(brokenImages);
+        return new BrokenImagePage(driver);
+    }
 }
