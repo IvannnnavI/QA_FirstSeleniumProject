@@ -102,4 +102,12 @@ public class HomePage extends BasePage {
         click(brokenImages);
         return new BrokenImagePage(driver);
     }
+
+    @FindBy(xpath = "//a[contains(text(),'Add/Remove Elements')]")
+    WebElement addRemoveElements;
+
+    public AddRemoveElementsPage getAddRemoveElements() {
+        click(addRemoveElements);
+        return new AddRemoveElementsPage(driver);
+    }
 }
